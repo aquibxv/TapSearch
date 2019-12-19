@@ -9,7 +9,8 @@ Searches for paragraphs with the given word by creating a words to paragraph map
 
 <h3> How to use </h3>
 - Submit documents, PDF using /api/index endpoint to index the documets and PDF's. <br/>
-- after submission head over to /api/search and search for relevant words, the resultant documents will appear in serach result.<br/>
+- after submission head over to /api/search and search for relevant words, the resultant documents will appear in search result.<br/>
+- to clear the index and index tables head over to /api/clear. <br/>
 
 <h3> Exceptions </h3>
 While submitting PDF's refrain from submitting multiple PDF's having the same name as it throws an 'multiple objects' exception <br/>
