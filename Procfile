@@ -1,1 +1,1 @@
-web: gunicorn TapSearch.wsgi
+web: gunicorn tapserach.wsgi
