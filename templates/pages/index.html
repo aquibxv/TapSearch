@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Arvo|Bree+Serif&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'CSS/index_stylesheet.css' %}">
+</head>
+<body>
+
+<div class="header" id="myHeader">
+  <a href="{% url 'home' %}">
+    TapSearch
+  </a>
+</div>
+
+<div id="center">
+  <h2 id="font-added">Submit document to index</h2>
+  <form action="{% url 'index' %}", method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <textarea name="document"></textarea>
+
+    <br>
+    <span><b>or</b></span>
+    <br><br>
+    <span><b>Upload PDF :</b></span>
+    <input type="file" name="myFile" multiple><br><br>
+
+    <button class="button button1">Submit</button>
+
+  </form>
+</div>
+
+
+<script src="{% static 'JS/home_js1.js' %}"></script>
+
+</body>
+</html>

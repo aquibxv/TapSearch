@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Arvo|Bree+Serif&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'CSS/search_stylesheet.css' %}">
+</head>
+<body>
+
+<div class="header" id="myHeader">
+  <a href="{% url 'home' %}">
+    TapSearch
+  </a>
+</div>
+
+<div id="center">
+  <form form action="{% url 'search' %}", method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="text" name="token" placeholder="Search.."> <br>
+    <button class="button button1">Search</button>
+</form>
+
+<br><br>
+
+<div>
+  {% if documents == 0 %}
+    <div style="padding-bottom: 30px; font-size: 20px;">
+      <h3 style="text-align: center;">No search result found</h3>
+    </div>
+  {% elif pdfs %}
+    {% for pdf in pdfs %}
+      <div style="padding-bottom: 30px; font-size: 20px;">
+        {{ pdf.name }}
+        <span style="padding-left: 20px;">
+          <a href="{{pdf.pdf_file.url}}" target="_blank">View</a>
+        </span>
+      </div>
+    {% endfor %}
+  {% elif documents %}
+  {% for document in documents %}
+    <div style="padding-bottom: 30px; font-size: 20px;">
+      {{ document }}
+    </div>
+{% endfor %}
+{% endif %}
+</div>
+
+</div>
+
+<script src="{% static 'JS/home_js1.js' %}"></script>
+
+</body>
+</html>
