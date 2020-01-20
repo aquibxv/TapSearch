@@ -1,4 +1,4 @@
-# TapSearch
+# TapSearch - https://serachtap.herokuapp.com/
 Searches for paragraphs with the given word by creating a words to paragraph mappings on an inverted index.
 
 <h3>Api end points</h3>
